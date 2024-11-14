@@ -15,10 +15,10 @@ The project consists of stress testing various server setups to compare results 
 
 ## Todo Enpoints Schema
 - /api/
-- /api/:todo
-- /api/new
-- /api/delete
-- /api/update
+- /api/:id/todo
+- /api/new/todo
+- /api/:id/delete/todo
+- /api/:id/update/todo
 
 ### Load tester applications
 - [Artillery](https://www.artillery.io)
