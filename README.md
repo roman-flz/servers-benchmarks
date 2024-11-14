@@ -13,8 +13,8 @@ The project consists of stress testing various server setups to compare results 
 - [Elysia](elysiajs.com/)
 - [Endcore](https://encore.dev)
 
-## Enpoints Schema
-- /api/todos
+## Todo Enpoints Schema
+- /api/
 - /api/:todo
 - /api/new
 - /api/delete
