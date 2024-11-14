@@ -1,0 +1,36 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "./src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon run ./src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roman-flz/servers-benchmarks.git"
+  },
+  "keywords": [
+    "bechmark",
+    "nodejs",
+    "expressjs",
+    "development",
+    "full",
+    "stack",
+    "bun",
+    "hono",
+    "encore"
+  ],
+  "author": "R&D",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roman-flz/servers-benchmarks/issues"
+  },
+  "homepage": "https://github.com/roman-flz/servers-benchmarks#readme",
+  "dependencies": {
+    "express": "^4.21.1",
+    "nodemon": "^3.1.7"
+  }
+}
