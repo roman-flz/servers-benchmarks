@@ -13,6 +13,13 @@ The project consists of stress testing various server setups to compare results 
 - [Elysia](elysiajs.com/)
 - [Endcore](https://encore.dev)
 
+## Enpoint Schema
+/api/todos
+/api/:todo
+/api/new
+/api/delete
+/api/update
+
 ### Load tester applications
 - [Artillery](https://www.artillery.io)
 - [Auto Cannon](https://github.com/mcollina/autocannon#readme)
