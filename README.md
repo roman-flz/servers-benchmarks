@@ -14,11 +14,11 @@ The project consists of stress testing various server setups to compare results 
 - [Endcore](https://encore.dev)
 
 ## Enpoint Schema
-/api/todos
-/api/:todo
-/api/new
-/api/delete
-/api/update
+- /api/todos
+- /api/:todo
+- /api/new
+- /api/delete
+- /api/update
 
 ### Load tester applications
 - [Artillery](https://www.artillery.io)
