@@ -1,6 +1,14 @@
 # Servers benchmarks
 The project consists of stress testing various server setups to compare results and determine the most performant backend technology.
 
+### Epic Jira ticket
+https://ussdprdengcms03.hologic.corp/browse/GDD-1527
+
+Meant to be used as naming convention for all future commits 
+1. e.g  GDD-1527-runtime-env-<brief description>
+2. e.g. GDD-1527-node-express-<brief description>
+
+
 ## Runtime Technologies
 - [Nodejs](https://nodejs.org/en)
 - [Bun](https://bun.sh)
