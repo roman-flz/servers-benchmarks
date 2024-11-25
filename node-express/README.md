@@ -21,6 +21,16 @@
     - package.json
     - README.md
 
+## Endpoints
+
+**Root Segment** /api/v1
+
+    - GET root/
+    - GET root/:id
+    - POST root
+    - DELETE root/:id
+    - PUT root/:id
+
 ## Dependencies
 
     - Runtime environment x >= NodeJs 22.5
