@@ -9,17 +9,19 @@
 
 ## Directories
 
-    - node_modules
-    - src
-      - db
-        - queries
-          - tasks
-        - settings
-      - server.js
-    - .env
-    - package-lock.json
-    - package.json
-    - README.md
+```
+  ├───node_modules
+  └───src
+  |   └───db
+  |   |   ├───queries
+  |   |   │   └───tasks
+  |   |   └───settings
+  |   └─── server.js
+  └─────── .env
+  └─────── .package-lock.json
+  └─────── .package.json
+  └─────── README.md
+```
 
 ## Endpoints
 
@@ -55,3 +57,7 @@
 
 Run the following to execute the server
 npm run dev
+
+```
+
+```
