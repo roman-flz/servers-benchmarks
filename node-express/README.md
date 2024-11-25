@@ -1,6 +1,6 @@
 # NODEJS AND EXPRESSJS SERVER
 
-    - This backend implementation aims to provide insight into the implementation response when subjected to a rigorous stress test
+    - This backend implementation aims to provide insight into the server performance when subjected to a rigorous stress test
     - The goal is to compare the performance relative to other server alternatives
     - The best candidate that provides the best results, along with additional complementary tools and features, will be considered for our near-future full-stack implementations
 
