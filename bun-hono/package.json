@@ -2,6 +2,9 @@
   "name": "bun-hono",
   "module": "server.ts",
   "type": "module",
+  "scripts": {
+    "start": "bun --watch server.ts"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
