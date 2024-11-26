@@ -12,6 +12,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "hono": "^4.6.12"
+    "hono": "^4.6.12",
+    "pg": "^8.13.1"
   }
 }
