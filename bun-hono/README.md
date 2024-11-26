@@ -10,7 +10,17 @@
 ## Directories
 
 ```
-
+├───db/
+│   ├───queries/
+│   └───settings/
+└─── node_modules/
+└─── .env
+└─── .gitignore
+└───  bun.lockb
+└───  package.json
+└───  README.md
+└───  server.ts
+└───  tsconfig.json
 ```
 
 ## Endpoints
@@ -24,6 +34,9 @@
     - PUT root/:id
 
 ## Dependencies
+
+    - hono
+    - pg
 
 ## PG /db/settings
 
