@@ -18,11 +18,11 @@ https://ussdprdengcms03.hologic.corp/browse/GDD-1540
 - [Endcore](https://encore.dev)
 
 ## Todo Enpoints Schema
-- /api/
-- /api/:id/todo
-- /api/new/todo
-- /api/:id/delete/todo
-- /api/:id/update/todo
+- GET root/
+- GET root/:id
+- POST root
+- DELETE root/:id
+- PUT root/:id
 
 ### Load tester applications
 - [Artillery](https://www.artillery.io)
