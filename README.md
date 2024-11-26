@@ -3,13 +3,7 @@ The project consists of stress testing various server setups to compare results 
 
 ### Epic Jira ticket
 
-https://ussdprdengcms03.hologic.corp/browse/GDD-1527
-
-Meant to be used as naming convention for all future commits 
-**GDD-1527Education Site V3 Research (Epic)**
-1. e.g  GDD-1029-runtime-env-**type-brief-description**
-2. e.g. GDD-1130-node-express-**type-brief-description**
-
+https://ussdprdengcms03.hologic.corp/browse/GDD-1540
 
 ## Runtime Technologies
 - [Nodejs](https://nodejs.org/en)
