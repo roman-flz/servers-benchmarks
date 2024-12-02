@@ -2,3 +2,4 @@
 /node-express/node_modules
 /node-express/.env.local
 node-express/.env
+node-fastify/.env
