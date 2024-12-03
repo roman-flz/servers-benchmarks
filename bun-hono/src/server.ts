@@ -81,7 +81,7 @@ app.put(`${root}/:id`, async (c) => {
       const data = db.query(pgTasksQueries.getAll);
       return c.json({
         message: "Task updated successfully",
-        data: data.rows,
+        data: (await data).rows,
       });
     }
   } catch (err) {

@@ -1,12 +1,15 @@
 {
   "name": "bun-hono",
-  "module": "server.ts",
+  "module": "./src/server.ts",
   "type": "module",
   "scripts": {
-    "dev": "bun --watch server.ts"
+    "dev": "bun --watch ./src/server.ts",
+    "build": "bun run tsc",
+    "start": "node dist/server.js"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@types/pg": "^8.11.10"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"

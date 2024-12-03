@@ -1,0 +1,31 @@
+services:
+  postgresdb:
+    image: postgres:latest
+    container_name: postgresdb
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: dailytasks
+    networks:
+      - servers-network
+
+  bun-hono:
+    build:
+      context: ./bun-hono
+      dockerfile: Dockerfile
+    container_name: bun-hono-container
+    ports:
+      - "1234:1234"
+    environment:
+      DB_USER: postgres
+      DB_HOST: postgresdb
+      DB_NAME: dailytasks
+      DB_PASSWORD: root
+      DB_PORT: 5432
+      SERVER_PORT: 1234
+    networks:
+      - servers-network
+
+networks:
+  servers-network:
+    driver: bridge
