@@ -43,6 +43,23 @@ services:
     networks:
       - servers-network
 
+  node-fastify:
+    build:
+      context: ./node-fastify
+      dockerfile: Dockerfile
+    container_name: node-fastify-container
+    ports:
+      - "3000:3000"
+    environment:
+      DB_USER: postgres
+      DB_HOST: postgresdb
+      DB_NAME: dailytasks
+      DB_PASSWORD: root
+      DB_PORT: 5432
+      SERVER_PORT: 3000
+    networks:
+      - servers-network
+
 networks:
   servers-network:
     driver: bridge
