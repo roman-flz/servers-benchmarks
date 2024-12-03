@@ -62,6 +62,23 @@ services:
     networks:
       - servers-network
 
+  bun-elysia:
+    build:
+      context: ./bun-elysia
+      dockerfile: Dockerfile
+    container_name: bun-elysia-container
+    ports:
+      - "1112:1112"
+    environment:
+      DB_USER: postgres
+      DB_HOST: postgresdb
+      DB_NAME: dailytasks
+      DB_PASSWORD: root
+      DB_PORT: 5432
+      SERVER_PORT: 1112
+    networks:
+      - servers-network
+
 networks:
   servers-network:
     driver: bridge
