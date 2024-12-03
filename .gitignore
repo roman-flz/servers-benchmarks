@@ -3,4 +3,5 @@
 /node-express/.env.local
 node-express/.env
 node-fastify/.env
+bun-elysia/node_modules
 bun-hono/.env
