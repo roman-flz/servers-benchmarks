@@ -26,6 +26,23 @@ services:
     networks:
       - servers-network
 
+  node-express:
+    build:
+      context: ./node-express
+      dockerfile: Dockerfile
+    container_name: node-express-container
+    ports:
+      - "4567:4567"
+    environment:
+      DB_USER: postgres
+      DB_HOST: postgresdb
+      DB_NAME: dailytasks
+      DB_PASSWORD: root
+      DB_PORT: 5432
+      SERVER_PORT: 4567
+    networks:
+      - servers-network
+
 networks:
   servers-network:
     driver: bridge
