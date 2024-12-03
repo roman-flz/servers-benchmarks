@@ -8,7 +8,7 @@ const app = express();
 
 const PORT = process.env.SERVER_PORT | 4567;
 const root = "/api/v1";
-
+console.log(process.env.SERVER_PORT);
 // Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
