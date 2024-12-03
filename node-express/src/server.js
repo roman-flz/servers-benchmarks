@@ -6,7 +6,7 @@ import pool from "./db/settings/index.js";
 dotenv.config();
 const app = express();
 
-const PORT = process.env.SERVER_PORT | 3000;
+const PORT = process.env.SERVER_PORT | 4567;
 const root = "/api/v1";
 
 // Middlewares
