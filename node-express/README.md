@@ -5,9 +5,9 @@
     - The best candidate that provides the best results, along with additional complementary tools and features, will be considered for our near-future full-stack implementations
 
 
-**Epic Jira Ticket** GDD-1527
+Epic Jira Ticket **GDD-1527**
 
-**Jira Ticket** GDD-1537
+Jira Ticket **GDD-1537**
 
 ## Directories
 
