@@ -6,6 +6,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root
       POSTGRES_DB: dailytasks
+    ports:
+      - "5432:5432"
     networks:
       - servers-network
 
@@ -49,14 +51,14 @@ services:
       dockerfile: Dockerfile
     container_name: node-fastify-container
     ports:
-      - "3000:3000"
+      - "8910:8910"
     environment:
       DB_USER: postgres
       DB_HOST: postgresdb
       DB_NAME: dailytasks
       DB_PASSWORD: root
       DB_PORT: 5432
-      SERVER_PORT: 3000
+      SERVER_PORT: 8910
     networks:
       - servers-network
 
