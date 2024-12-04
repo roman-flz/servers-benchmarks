@@ -1,5 +1,6 @@
 // src/db/settings/index.ts
 import { Pool } from "pg";
+import os from "os";
 
 const pool = new Pool({
   user: Bun.env.DB_USER,

@@ -20,13 +20,22 @@ https://ussdprdengcms03.hologic.corp/browse/GDD-1540
 - [Elysia](elysiajs.com/)
 - [Endcore](https://encore.dev)
 
+## Servers
+
+[x] node-express
+[x] node-fastify
+[x] bun-hono
+[] bun-elysia
+
 ## Todo Enpoints Schema
 
-- GET root/
-- GET root/:id
-- POST root
-- DELETE root/:id
-- PUT root/:id
+```
+- GET    api/v1/
+- GET    api/v1/:id
+- POST   api/v1
+- DELETE api/v1/:id
+- PUT    api/v1/:id
+```
 
 ### Load tester applications
 
