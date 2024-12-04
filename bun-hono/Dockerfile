@@ -14,7 +14,7 @@ RUN bun install
 COPY src ./src
 
 # Expose the application port
-EXPOSE 1234
+EXPOSE 9910
 
 # Start the server
 CMD ["bun", "run", "dev"]

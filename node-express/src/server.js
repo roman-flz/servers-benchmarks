@@ -6,9 +6,9 @@ import pool from "./db/settings/index.js";
 dotenv.config();
 const app = express();
 
-const PORT = process.env.SERVER_PORT | 4567;
+const PORT = process.env.HOST_PORT || 1234;
 const root = "/api/v1";
-console.log(process.env.SERVER_PORT);
+
 // Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

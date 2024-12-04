@@ -30,17 +30,25 @@ https://ussdprdengcms03.hologic.corp/browse/GDD-1540
 
 ### Load tester applications
 
+#### Top Priority
+
+- [K6](K6.io/)
+
+#### Alternatives
+
 - [Artillery](https://www.artillery.io)
 - [Auto Cannon](https://github.com/mcollina/autocannon#readme)
 
 ```
-<!-- Plugin to enable uuid when creating table -->
+DATABASE SETUP
+1. Pull the postgresql image from the docker registry
+2. Run the image
+3. Go into the postgresql container terminal (as an alternative, you can use the docker client)
+4. Create database 'dailytasks'
+5. Go into database as "postgres" user by typing psql -U postgresql -d dailytasks
+6. Create database:
+
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
-
-<!-- Create database daily tasks -->
-CREATE DATABASE dailytasks;
-
-<!-- Create Tasks Table -->
 CREATE TABLE tasks (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     title VARCHAR(255) NOT NULL,

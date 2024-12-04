@@ -1,30 +1,13 @@
 services:
-  postgresdb:
+  serverspsqldb:
     image: postgres:latest
-    container_name: postgresdb
+    container_name: serverspsqldb
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root
       POSTGRES_DB: dailytasks
     ports:
-      - "5432:5432"
-    networks:
-      - servers-network
-
-  bun-hono:
-    build:
-      context: ./bun-hono
-      dockerfile: Dockerfile
-    container_name: bun-hono-container
-    ports:
-      - "1234:1234"
-    environment:
-      DB_USER: postgres
-      DB_HOST: postgresdb
-      DB_NAME: dailytasks
-      DB_PASSWORD: root
-      DB_PORT: 5432
-      SERVER_PORT: 1234
+      - "5433:5432"
     networks:
       - servers-network
 
@@ -34,31 +17,14 @@ services:
       dockerfile: Dockerfile
     container_name: node-express-container
     ports:
-      - "4567:4567"
+      - "12341:12791"
     environment:
       DB_USER: postgres
-      DB_HOST: postgresdb
+      DB_HOST: serverspsqldb
       DB_NAME: dailytasks
       DB_PASSWORD: root
       DB_PORT: 5432
-      SERVER_PORT: 4567
-    networks:
-      - servers-network
-
-  node-fastify:
-    build:
-      context: ./node-fastify
-      dockerfile: Dockerfile
-    container_name: node-fastify-container
-    ports:
-      - "8910:8910"
-    environment:
-      DB_USER: postgres
-      DB_HOST: postgresdb
-      DB_NAME: dailytasks
-      DB_PASSWORD: root
-      DB_PORT: 5432
-      SERVER_PORT: 8910
+      SERVER_PORT: 12791
     networks:
       - servers-network
 
