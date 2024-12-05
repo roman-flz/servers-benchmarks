@@ -1,0 +1,21 @@
+{
+  "name": "bun-hono",
+  "module": "./src/server.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch ./src/server.ts",
+    "build": "bun run tsc",
+    "start": "node dist/server.js"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/pg": "^8.11.10"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "hono": "^4.6.12",
+    "pg": "^8.13.1"
+  }
+}

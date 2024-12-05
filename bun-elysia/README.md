@@ -31,3 +31,18 @@ to verify
 you can run autocannon against any endpoint by simply executing\
 `npx autocannon http://localhost:3000/curricula/c22fc3c4-7e2b-43af-bf1d-c641b7218ffa`
 
+# Elysia with Bun runtime
+
+## Getting Started
+To get started with this template, simply paste this command into your terminal:
+```bash
+bun create elysia ./elysia-example
+```
+
+## Development
+To start the development server run:
+```bash
+bun run dev
+```
+
+Open http://localhost:3000/ with your browser to see the result.

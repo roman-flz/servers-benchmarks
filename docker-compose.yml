@@ -1,0 +1,84 @@
+services:
+  serverspsqldb:
+    image: postgres:latest
+    container_name: serverspsqldb
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: dailytasks
+    ports:
+      - "5433:5432"
+    networks:
+      - servers-network
+
+  node-express:
+    build:
+      context: ./node-express
+      dockerfile: Dockerfile
+    container_name: node-express-server
+    ports:
+      - "1234:12791"
+    environment:
+      DB_USER: postgres
+      DB_HOST: serverspsqldb
+      DB_NAME: dailytasks
+      DB_PASSWORD: root
+      DB_PORT: 5432
+      SERVER_PORT: 12791
+    networks:
+      - servers-network
+
+  node-fastify:
+    build:
+      context: ./node-fastify
+      dockerfile: Dockerfile
+    container_name: node-fastify-server
+    ports:
+      - "5678:5678"
+    environment:
+      DB_USER: postgres
+      DB_HOST: serverspsqldb
+      DB_NAME: dailytasks
+      DB_PASSWORD: root
+      DB_PORT: 5432
+      SERVER_PORT: 5678
+    networks:
+      - servers-network
+
+  bun-hono:
+    build:
+      context: ./bun-hono
+      dockerfile: Dockerfile
+    container_name: bun-hono-server
+    ports:
+      - "9101:9910"
+    environment:
+      DB_USER: postgres
+      DB_HOST: serverspsqldb
+      DB_NAME: dailytasks
+      DB_PASSWORD: root
+      DB_PORT: 5432
+      SERVER_PORT: 9910
+    networks:
+      - servers-network
+
+  bun-elysia:
+    build:
+      context: ./bun-elysia
+      dockerfile: Dockerfile
+    container_name: bun-elysia-server
+    ports:
+      - "1011:1011"
+    environment:
+      DB_USER: postgres
+      DB_HOST: serverspsqldb
+      DB_NAME: dailytasks
+      DB_PASSWORD: root
+      DB_PORT: 5432
+      SERVER_PORT: 1011
+    networks:
+      - servers-network
+
+networks:
+  servers-network:
+    driver: bridge
