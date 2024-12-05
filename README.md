@@ -23,12 +23,14 @@ https://ussdprdengcms03.hologic.corp/browse/GDD-1540
 
 ## Servers
 
+```
 [x] node-express
 [x] node-fastify
 [x] bun-hono
 [x] bun-elysia
 [] encore - though implemented, it needs additional tweaks to be fully dockerized
 [] .NET (in progress)
+```
 
 ## Todo Enpoints Schema
 
