@@ -30,11 +30,11 @@ https://ussdprdengcms03.hologic.corp/browse/GDD-1540
 ## Todo Enpoints Schema
 
 ```
-- GET    api/v1/
-- GET    api/v1/:id
-- POST   api/v1
-- DELETE api/v1/:id
-- PUT    api/v1/:id
+- GET    /api/v1/
+- GET    /api/v1/:id
+- POST   /api/v1
+- DELETE /api/v1/:id
+- PUT    /api/v1/:id
 ```
 
 ### Load tester applications
@@ -53,9 +53,18 @@ DATABASE SETUP
 1. Pull the postgresql image from the docker registry
 2. Run the image
 3. Go into the postgresql container terminal (as an alternative, you can use the docker client)
-4. Create database 'dailytasks'
-5. Go into database as "postgres" user by typing psql -U postgresql -d dailytasks
-6. Create database:
+4. Create database 'dailytasks' and 'tasks' table
+
+    4a. From your host terminal
+        1. Docker exec -it <container_name> psql -U postgres -d dailytasks
+        2. Copy and paste the 'create database snippet below
+    4b. Using docker client
+        1. Go into the database container by clicking on the container name
+        2. Click on the exec tab
+        3. Type 'psql -U postgres -d dailytasks' to access the database 'dailytasks'
+        4. Copy and paste the 'create database' snippet below
+
+5. Create database:
 
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 CREATE TABLE tasks (
