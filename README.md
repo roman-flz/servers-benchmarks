@@ -19,13 +19,16 @@ https://ussdprdengcms03.hologic.corp/browse/GDD-1540
 - [Hono](hono.dev/)
 - [Elysia](elysiajs.com/)
 - [Endcore](https://encore.dev)
+- [Fastify](https://fastify.dev)
 
 ## Servers
 
 [x] node-express
 [x] node-fastify
 [x] bun-hono
-[] bun-elysia
+[x] bun-elysia
+[] encore - though implemented, it needs additional tweaks to be fully dockerized
+[] .NET (in progress)
 
 ## Todo Enpoints Schema
 
