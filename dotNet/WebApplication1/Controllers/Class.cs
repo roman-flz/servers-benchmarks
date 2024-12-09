@@ -55,17 +55,14 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPut("tasks/{id}")]
-        public async Task<IActionResult> PutTask(Guid id, [FromBody] string updates)
+        public async Task<IActionResult> PutTask(Guid id, [FromBody] MyDBContext.postReq item)
         {
             try
             {
                 MyDBContext.task task = await _context.tasks.Where(x => x.id == id).FirstOrDefaultAsync();
 
-                dynamic obj = JsonConvert.DeserializeObject(updates);
-
-                var desc = obj.description;
-                task.description = obj.description;
-                task.title = obj.title;
+                task.description = item.description;
+                task.title = item.title;
 
                 _context.Update(task);
                 _context.SaveChanges();
