@@ -41,6 +41,8 @@ namespace WebApplication1.Controllers
                 var desc = item.description;
                 task.description = item.description;
                 task.title = item.title;
+                task.createdat = DateTime.UtcNow;
+                task.updatedat = DateTime.UtcNow;
 
                 _context.Add(task);
                 _context.SaveChanges();
@@ -63,6 +65,7 @@ namespace WebApplication1.Controllers
 
                 task.description = item.description;
                 task.title = item.title;
+                task.updatedat = DateTime.UtcNow;
 
                 _context.Update(task);
                 _context.SaveChanges();
