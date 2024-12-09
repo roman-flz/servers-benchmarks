@@ -19,5 +19,11 @@ namespace WebApplication1.Models
 
             public DateTime updatedat { get; set; }
         }
+
+        public class postReq
+        {
+            public string title { get; set; }
+            public string description { get; set; }
+        }
     }
 }

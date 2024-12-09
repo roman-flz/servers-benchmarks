@@ -31,18 +31,16 @@ namespace WebApplication1.Controllers
             return await _context.tasks.Where(x => x.id == id).FirstOrDefaultAsync();
         }
 
-        [HttpPost("tasks/{item}")]
-        public  IActionResult PostTask(string item)
+        [HttpPost("tasks")]
+        public  IActionResult PostTask([FromBody] MyDBContext.postReq item)
         {
             try
             {
                 MyDBContext.task task = new MyDBContext.task();
 
-                dynamic obj = JsonConvert.DeserializeObject(item);
-
-                var desc = obj.description;
-                task.description = obj.description;
-                task.title = obj.title;
+                var desc = item.description;
+                task.description = item.description;
+                task.title = item.title;
 
                 _context.Add(task);
                 _context.SaveChanges();
