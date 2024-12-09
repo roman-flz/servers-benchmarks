@@ -28,8 +28,11 @@ https://ussdprdengcms03.hologic.corp/browse/GDD-1540
 [x] node-fastify
 [x] bun-hono
 [x] bun-elysia
-[] encore - though implemented, it needs additional tweaks to be fully dockerized
-[] .NET (in progress)
+[x] .NET
+
+Encore has been dropped from the bucket!
+Although the framework provides useful tools out of the box, we want to aim for
+alternatives that allow us a flexible development experience instead of being subject to a vendor lock-in paradigm.
 ```
 
 ## Todo Enpoints Schema
