@@ -21,18 +21,29 @@ https://ussdprdengcms03.hologic.corp/browse/GDD-1540
 - [Endcore](https://encore.dev)
 - [Fastify](https://fastify.dev)
 
-## Servers
+## No longer under consideration
+
+~~Deno~~
+~~Encore~~
 
 ```
-[x] node-express
-[x] node-fastify
-[x] bun-hono
-[x] bun-elysia
-[x] .NET
-
 Encore has been dropped from the bucket!
 Although the framework provides useful tools out of the box, we want to aim for
 alternatives that allow us a flexible development experience instead of being subject to a vendor lock-in paradigm.
+
+Though deno has been the topic for conversation in the development center square community for quite some time, the adaptation has been
+really slow moving hence lack of support within the community.
+```
+
+## Servers
+
+```
+[x] bun-elysia
+[x] bun-hono
+[x] dotnet
+[x] node-express
+[x] node-fastify
+
 ```
 
 ## Todo Enpoints Schema

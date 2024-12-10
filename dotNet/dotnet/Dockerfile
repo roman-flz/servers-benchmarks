@@ -14,7 +14,7 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["dotnet/dotnet.csproj", "dotnet/"]
 COPY ["dotnet/nuget.config", "dotnet/"]
-RUN dotnet restore "./dotnet/dotnet.csproj"
+RUN dotnet restore "./dotnet/dotnet.csproj" --verbosity detailed
 COPY . .
 WORKDIR "/src/dotnet"
 RUN dotnet build "./dotnet.csproj" -c $BUILD_CONFIGURATION -o /app/build

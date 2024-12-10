@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using dotnet.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using dotnet.Models;
-using System.Threading.Tasks;
 
 namespace dotnet.Controllers
 {

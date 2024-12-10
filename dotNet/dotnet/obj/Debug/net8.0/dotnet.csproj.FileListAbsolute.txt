@@ -52,3 +52,4 @@ C:\Users\rf0921\Documents\servers-benchmarks\dotnet\dotnet\obj\Debug\net8.0\refi
 C:\Users\rf0921\Documents\servers-benchmarks\dotnet\dotnet\obj\Debug\net8.0\dotnet.pdb
 C:\Users\rf0921\Documents\servers-benchmarks\dotnet\dotnet\obj\Debug\net8.0\dotnet.genruntimeconfig.cache
 C:\Users\rf0921\Documents\servers-benchmarks\dotnet\dotnet\obj\Debug\net8.0\ref\dotnet.dll
+C:\Users\rf0921\Documents\servers-benchmarks\dotnet\dotnet\bin\Debug\net8.0\nuget.config
