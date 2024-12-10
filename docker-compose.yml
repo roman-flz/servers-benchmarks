@@ -1,6 +1,7 @@
 services:
   postgresdb:
     image: postgres:latest
+    restart: always
     container_name: postgresdb
     environment:
       POSTGRES_USER: postgres
@@ -11,11 +12,28 @@ services:
     networks:
       - servers-network
 
- bun-elysia:
+  node-express:
     build:
-      context: ./bun-elysia
+      context: ./node-express
       dockerfile: Dockerfile
-    container_name: bun-elysia-container
+    container_name: node-express-server
+    ports:
+      - "1234:12791"
+    environment:
+      DB_USER: postgres
+      DB_HOST: postgresdb
+      DB_NAME: dailytasks
+      DB_PASSWORD: root
+      DB_PORT: 5432
+      SERVER_PORT: 12791
+    networks:
+      - servers-network
+
+  node-fastify:
+    build:
+      context: ./node-fastify
+      dockerfile: Dockerfile
+    container_name: node-fastify-server
     ports:
       - "5678:5678"
     environment:
@@ -32,50 +50,51 @@ services:
     build:
       context: ./bun-hono
       dockerfile: Dockerfile
-    container_name: bun-hono-container
+    container_name: bun-hono-server
     ports:
-      - "1234:1234"
+      - "9101:9910"
     environment:
       DB_USER: postgres
       DB_HOST: postgresdb
       DB_NAME: dailytasks
       DB_PASSWORD: root
       DB_PORT: 5432
-      SERVER_PORT: 1234
+      SERVER_PORT: 9910
     networks:
       - servers-network
 
-  node-express:
+  bun-elysia:
     build:
-      context: ./node-express
+      context: ./bun-elysia
       dockerfile: Dockerfile
-    container_name: node-express-container
+    container_name: bun-elysia-server
     ports:
-      - "4567:4567"
+      - "1011:1011"
     environment:
       DB_USER: postgres
       DB_HOST: postgresdb
       DB_NAME: dailytasks
       DB_PASSWORD: root
       DB_PORT: 5432
-      SERVER_PORT: 4567
+      SERVER_PORT: 1011
     networks:
       - servers-network
 
-  node-fastify:
+  dotnet:
     build:
-      context: ./node-fastify
-      dockerfile: Dockerfile
-    container_name: node-fastify-container
+      context: ./dotnet
+      dockerfile: /dotnet/Dockerfile
+    container_name: dotne-server
     ports:
-      - "5678:5678"
+      - "8282:8080"
+      - "8282:8081"
     environment:
       DB_USER: postgres
       DB_HOST: postgresdb
       DB_NAME: dailytasks
       DB_PASSWORD: root
       DB_PORT: 5432
-      SERVER_PORT: 5678
+      SERVER_PORT: 1011
     networks:
       - servers-network
 

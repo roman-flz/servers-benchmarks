@@ -1,12 +1,12 @@
 "use strict";
 const root = "/api/v1";
-const pgTaskQueries = require("../db/queries/tasks");
+const { taskQueries } = require("../../utils/queries/js/tasks");
 
 module.exports = async function (fastify, opts) {
   // Get all tasks
   fastify.get(`${root}/`, async function (request, reply) {
     try {
-      const result = await fastify.pg.query(pgTaskQueries.getAll);
+      const result = await fastify.pg.query(taskQueries.getAll);
       reply.send({ data: result.rows });
     } catch (err) {
       reply.status(500).send({ error: err.message });
@@ -16,7 +16,7 @@ module.exports = async function (fastify, opts) {
   // Get task
   fastify.get(`${root}/:id`, async function (request, reply) {
     try {
-      const result = await fastify.pg.query(pgTaskQueries.getById, [
+      const result = await fastify.pg.query(taskQueries.getById, [
         request.params.id,
       ]);
       reply.send({ data: result.rows });
@@ -28,7 +28,7 @@ module.exports = async function (fastify, opts) {
   // Create new task
   fastify.post(`${root}/`, async function (request, reply) {
     try {
-      const result = await fastify.pg.query(pgTaskQueries.create, [
+      const result = await fastify.pg.query(taskQueries.create, [
         request.body.title,
         request.body.description,
       ]);
@@ -41,7 +41,7 @@ module.exports = async function (fastify, opts) {
   // Update task
   fastify.put(`${root}/:id`, async function (request, reply) {
     try {
-      const result = await fastify.pg.query(pgTaskQueries.update, [
+      const result = await fastify.pg.query(taskQueries.update, [
         request.body.title,
         request.body.description,
         request.params.id,
@@ -55,7 +55,7 @@ module.exports = async function (fastify, opts) {
   // Delete task
   fastify.delete(`${root}/:id`, async function (request, reply) {
     try {
-      const result = await fastify.pg.query(pgTaskQueries.delete, [
+      const result = await fastify.pg.query(taskQueries.delete, [
         request.params.id,
       ]);
       reply.send({ data: result.rows });

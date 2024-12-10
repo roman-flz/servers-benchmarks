@@ -12,9 +12,8 @@ RUN npm install --production
 # Copy source code to the container
 COPY src ./src
 COPY .env ./
-
 # Expose the server port
-EXPOSE 4567
+EXPOSE 12341
 
 # Set environment variables
 ENV NODE_ENV=production

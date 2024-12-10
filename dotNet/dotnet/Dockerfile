@@ -13,6 +13,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["dotnet/dotnet.csproj", "dotnet/"]
+COPY ["dotnet/nuget.config", "dotnet/"]
 RUN dotnet restore "./dotnet/dotnet.csproj"
 COPY . .
 WORKDIR "/src/dotnet"

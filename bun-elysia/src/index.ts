@@ -1,6 +1,7 @@
 import { Elysia } from "elysia";
 import { swagger } from "@elysiajs/swagger";
-import prisma from "../prismaClient";
+import db from "./db/settings";
+import { taskQueries } from "./db/queries/tasks";
 
 const app = new Elysia()
   .use(
@@ -25,37 +26,29 @@ const app = new Elysia()
     })
   )
   .get("/api/v1", async () => {
-    const tasks = await prisma.tasks.findMany();
+    const { rows } = await db.query(taskQueries.getAll);
     return {
       message: "All Tasks fetched",
-      data: tasks,
+      data: rows,
     };
   })
   .get("/api/v1/:id", async ({ params: { id } }) => {
-    const task = await prisma.tasks.findUnique({
-      where: { id },
-    });
+    const { rows } = await db.query(taskQueries.getById, [id]);
     return {
       message: "Task fetched",
-      data: task,
+      data: rows,
     };
   })
   .post(
     "/api/v1",
-    async ({
-      body: { title, description },
-    }: {
-      body: { title: string; description: string };
-    }) => {
-      const task = await prisma.tasks.create({
-        data: {
-          title,
-          description,
-        },
-      });
+    async ({ body }: { body: { title: string; description: string } }) => {
+      const { rows } = await db.query(taskQueries.create, [
+        body.title,
+        body.description,
+      ]);
       return {
         message: "Task has been created successfully",
-        data: task,
+        data: rows,
       };
     }
   )
@@ -65,28 +58,24 @@ const app = new Elysia()
       title: string;
       description: string;
     };
-    const task = await prisma.tasks.update({
-      where: { id },
-      data: {
-        title,
-        description,
-      },
-    });
+    const { rows } = await db.query(taskQueries.update, [
+      title,
+      description,
+      id,
+    ]);
     return {
       message: "Task has been updated successfully",
-      data: task,
+      data: rows,
     };
   })
   .delete("/api/v1/:id", async ({ params: { id } }) => {
-    const task = await prisma.tasks.delete({
-      where: { id },
-    });
+    const { rows } = await db.query(taskQueries.delete, [id]);
     return {
       message: "Task has been deleted successfully",
-      data: task,
+      data: rows,
     };
   })
-  .listen(1112);
+  .listen(1011);
 
 console.log(
   `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`

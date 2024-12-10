@@ -19,28 +19,61 @@ https://ussdprdengcms03.hologic.corp/browse/GDD-1540
 - [Hono](hono.dev/)
 - [Elysia](elysiajs.com/)
 - [Endcore](https://encore.dev)
+- [Fastify](https://fastify.dev)
+
+## Servers
+
+```
+[x] node-express
+[x] node-fastify
+[x] bun-hono
+[x] bun-elysia
+[x] .NET
+
+Encore has been dropped from the bucket!
+Although the framework provides useful tools out of the box, we want to aim for
+alternatives that allow us a flexible development experience instead of being subject to a vendor lock-in paradigm.
+```
 
 ## Todo Enpoints Schema
 
-- GET root/
-- GET root/:id
-- POST root
-- DELETE root/:id
-- PUT root/:id
+```
+- GET    /api/v1/
+- GET    /api/v1/:id
+- POST   /api/v1
+- DELETE /api/v1/:id
+- PUT    /api/v1/:id
+```
 
 ### Load tester applications
+
+#### Top Priority
+
+- [K6](K6.io/)
+
+#### Alternatives
 
 - [Artillery](https://www.artillery.io)
 - [Auto Cannon](https://github.com/mcollina/autocannon#readme)
 
 ```
-<!-- Plugin to enable uuid when creating table -->
-CREATE EXTENSION IF NOT EXISTS pgcrypto;
+DATABASE SETUP
+1. Pull the postgresql image from the docker registry
+2. Run the image
+3. Go into the postgresql container terminal (as an alternative, you can use the docker client)
+4. Create database 'dailytasks' and 'tasks' table
 
-<!-- Create database daily tasks -->
-CREATE DATABASE dailytasks;
+    4a. From your host terminal
+        1. Docker exec -it <container_name> psql -U postgres -d dailytasks
+        2. Copy and paste the 'create database snippet below
+    4b. Using docker client
+        1. Go into the database container by clicking on the container name
+        2. Click on the exec tab
+        3. Type 'psql -U postgres -d dailytasks' to access the database 'dailytasks'
+        4. Copy and paste the 'create database' snippet below
 
-<!-- Create Tasks Table -->
+5. Create database:
+
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 CREATE TABLE tasks (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
