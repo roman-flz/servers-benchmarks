@@ -41,6 +41,7 @@ CREATE EXTENSION IF NOT EXISTS pgcrypto;
 CREATE DATABASE dailytasks;
 
 <!-- Create Tasks Table -->
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
 CREATE TABLE tasks (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     title VARCHAR(255) NOT NULL,
