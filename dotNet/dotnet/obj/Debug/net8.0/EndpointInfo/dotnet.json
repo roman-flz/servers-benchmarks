@@ -5,7 +5,7 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/v1/GetTasks": {
+    "/api/v1/Task/GetTasks": {
       "get": {
         "tags": [
           "Task"
@@ -17,7 +17,7 @@
         }
       }
     },
-    "/api/v1/GetTask/{taskId}": {
+    "/api/v1/Task/GetTask/{taskId}": {
       "get": {
         "tags": [
           "Task"
@@ -40,7 +40,7 @@
         }
       }
     },
-    "/api/v1/CreateTask": {
+    "/api/v1/Task/CreateTask": {
       "post": {
         "tags": [
           "Task"
@@ -71,7 +71,7 @@
         }
       }
     },
-    "/api/v1/EditTask/{taskId}": {
+    "/api/v1/Task/EditTask/{taskId}": {
       "put": {
         "tags": [
           "Task"
@@ -113,7 +113,7 @@
         }
       }
     },
-    "/api/v1/DeleteTask/{taskId}": {
+    "/api/v1/Task/DeleteTask/{taskId}": {
       "delete": {
         "tags": [
           "Task"
