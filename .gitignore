@@ -4,5 +4,9 @@
 node-express/.env
 node-fastify/.env
 bun-hono/.env
+<<<<<<< HEAD
+dotnet/.vs/*
+=======
 bun-elysia/node_modules
 bun-elysia/.env
+>>>>>>> 681d55cf3cfcd724a33110e4f6926412a2ab3abc

@@ -11,7 +11,7 @@ RUN npm install --production
 
 # Copy source code to the container
 COPY src ./src
-COPY .env ./
+# COPY .env ./
 # Expose the server port
 EXPOSE 12341
 

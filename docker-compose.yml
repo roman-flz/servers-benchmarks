@@ -1,13 +1,35 @@
 services:
-  serverspsqldb:
-    image: postgres:latest
-    container_name: serverspsqldb
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: root
-      POSTGRES_DB: dailytasks
+  bun-elysia:
+    build:
+      context: ./bun-elysia
+      dockerfile: Dockerfile
+    container_name: bun-elysia-server
     ports:
-      - "5433:5432"
+      - "1011:1011"
+    environment:
+      DB_USER: hologic
+      DB_HOST: gdds-educational-site-db-1
+      DB_NAME: dailytasks
+      DB_PASSWORD: hologic
+      DB_PORT: 5432
+      SERVER_PORT: 1011
+    networks:
+      - servers-network
+
+  bun-hono:
+    build:
+      context: ./bun-hono
+      dockerfile: Dockerfile
+    container_name: bun-hono-server
+    ports:
+      - "9101:9910"
+    environment:
+      DB_USER: hologic
+      DB_HOST: gdds-educational-site-db-1
+      DB_NAME: dailytasks
+      DB_PASSWORD: hologic
+      DB_PORT: 5432
+      SERVER_PORT: 9910
     networks:
       - servers-network
 
@@ -19,10 +41,10 @@ services:
     ports:
       - "1234:12791"
     environment:
-      DB_USER: postgres
-      DB_HOST: serverspsqldb
+      DB_USER: hologic
+      DB_HOST: gdds-educational-site-db-1
       DB_NAME: dailytasks
-      DB_PASSWORD: root
+      DB_PASSWORD: hologic
       DB_PORT: 5432
       SERVER_PORT: 12791
     networks:
@@ -36,46 +58,12 @@ services:
     ports:
       - "5678:5678"
     environment:
-      DB_USER: postgres
-      DB_HOST: serverspsqldb
+      DB_USER: hologic
+      DB_HOST: gdds-educational-site-db-1
       DB_NAME: dailytasks
-      DB_PASSWORD: root
+      DB_PASSWORD: hologic
       DB_PORT: 5432
       SERVER_PORT: 5678
-    networks:
-      - servers-network
-
-  bun-hono:
-    build:
-      context: ./bun-hono
-      dockerfile: Dockerfile
-    container_name: bun-hono-server
-    ports:
-      - "9101:9910"
-    environment:
-      DB_USER: postgres
-      DB_HOST: serverspsqldb
-      DB_NAME: dailytasks
-      DB_PASSWORD: root
-      DB_PORT: 5432
-      SERVER_PORT: 9910
-    networks:
-      - servers-network
-
-  bun-elysia:
-    build:
-      context: ./bun-elysia
-      dockerfile: Dockerfile
-    container_name: bun-elysia-server
-    ports:
-      - "1011:1011"
-    environment:
-      DB_USER: postgres
-      DB_HOST: serverspsqldb
-      DB_NAME: dailytasks
-      DB_PASSWORD: root
-      DB_PORT: 5432
-      SERVER_PORT: 1011
     networks:
       - servers-network
 
